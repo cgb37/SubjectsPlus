@@ -147,8 +147,8 @@ if (isset($_GET["browse"])) {
 
     // time to give some help
     $privs_blurb = _("Select which parts of SubjectsPlus this user may access.
-                <p><strong>records</strong> allows access to both the Record and Guide tabs.
-                <p><strong>eresource_mgr</strong> allows the user to see all the information about a Record (and delete it), and quickly see all guides.
+                <p><strong>records</strong> allows access to both the AZRecord and Guide tabs.
+                <p><strong>eresource_mgr</strong> allows the user to see all the information about a AZRecord (and delete it), and quickly see all guides.
                 <p><strong>admin</strong> allows access to the overall admin of the site.
                 <p><strong>librarian</strong> means user shows up in lists of librarians.
                 <p><strong>supervisor</strong> means user shows up in list of supervisors
@@ -220,7 +220,7 @@ if (isset($_GET["browse"])) {
 }
 
 //////////////////
-// Record View
+// AZRecord View
 //////////////////
 
 if (isset($_POST["delete_record"]) || isset($_GET["delete_record"])) {

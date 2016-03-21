@@ -19,7 +19,7 @@ if (isset($_POST["searchterm"])) {
 		
 		switch($result['content_type']) {
 
-	 	  case 'Record':
+	 	  case 'AZRecord':
 	 	  	$records_results[] = "<a href='records/record.php?record_id=" . $result['id'] . "'/>" . $result['matching_text'] .  "</a>";	    
 		    break;
 

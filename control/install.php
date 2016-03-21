@@ -57,7 +57,7 @@ if( isInstalled() )
 
 		"guide_types" => array( _( "Guide Types" ), _( "These are the different ways you may organize your guides." ), "array", "right", "large", "", _("You may add new types at any time.  If you change an existing type, you will need to update all items in subjects table by hand/SQL query.") ),
 
-		"all_ctags" => array( _( "Record Tags" ), _( "These are the tags that a given record location can have associated with it." ), "array", "right", "textarea", "", _("Record tags are a way of slicing and dicing the total set of records.  If you add a new tag, you will need to add new code to deal with items with this tag.  Adding a tag by itself will do nothing except make that tag show up in some places.") ),
+		"all_ctags" => array( _( "AZRecord Tags" ), _( "These are the tags that a given record location can have associated with it." ), "array", "right", "textarea", "", _("AZRecord tags are a way of slicing and dicing the total set of records.  If you add a new tag, you will need to add new code to deal with items with this tag.  Adding a tag by itself will do nothing except make that tag show up in some places.") ),
 
 		"all_vtags" => array( _( "Video Tags" ), _( "These are the tags that a given video can have associated with it. These are used for the videos module." ), "array", "right", "large", "", "" ),
 

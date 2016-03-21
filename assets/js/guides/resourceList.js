@@ -193,7 +193,7 @@ function resourceList() {
 							if (data.length !== 0) {
 								for (var i = 0; i < 10; i++) {
 									try {
-										if (data[i]['content_type'] == "Record") {
+										if (data[i]['content_type'] == "AZRecord") {
 											
 											myResourceList.settings.dbSearchResults.append("<li data-pluslet-id='" + data[i].id + "' class=\"db-list-item database-listing\">" +
 													"<div class=\"pure-g\"><div class=\"pure-u-4-5 list-search-label\" title=\"" + data[i].label + "\">" + data[i].label + "</div>" +

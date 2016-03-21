@@ -707,7 +707,7 @@ msgstr ""
 
 #: control/includes/classes/Staff.php:272
 #: control/includes/classes/sp_Record.php:176
-msgid "Save Record Now"
+msgid "Save AZRecord Now"
 msgstr ""
 
 #: control/includes/classes/Staff.php:278
@@ -749,7 +749,7 @@ msgid "Subject Specialist"
 msgstr ""
 
 #: control/includes/classes/sp_Record.php:143
-msgid "Record Title"
+msgid "AZRecord Title"
 msgstr ""
 
 #: control/includes/classes/sp_Record.php:146
@@ -833,11 +833,11 @@ msgid "There was a problem with your delete (stage 2 of 2)."
 msgstr ""
 
 #: control/includes/classes/sp_Record.php:515
-msgid "Thy Will Be Done.  Record added."
+msgid "Thy Will Be Done.  AZRecord added."
 msgstr ""
 
 #: control/includes/classes/sp_Record.php:580
-msgid "Thy Will Be Done.  Record updated."
+msgid "Thy Will Be Done.  AZRecord updated."
 msgstr ""
 
 #: control/includes/classes/sp_CompleteMe.php:52
@@ -1093,7 +1093,7 @@ msgid "Records"
 msgstr ""
 
 #: control/includes/classes/sp_BuildNav.php:35 control/records/index.php:145
-msgid "New Record"
+msgid "New AZRecord"
 msgstr ""
 
 #: control/includes/classes/sp_BuildNav.php:36
@@ -1286,7 +1286,7 @@ msgid "Research Guide deleted"
 msgstr ""
 
 #: control/includes/functions.php:674
-msgid "Record"
+msgid "AZRecord"
 msgstr ""
 
 #: control/includes/functions.php:678
@@ -1473,7 +1473,7 @@ msgid "This URL looks dodgy; better check it"
 msgstr ""
 
 #: control/records/record_bits.php:102
-msgid "SubjectsPlus: Record Delete Recommendation"
+msgid "SubjectsPlus: AZRecord Delete Recommendation"
 msgstr ""
 
 #: control/talkback/index.php:55 control/talkback/index.php:94
@@ -1559,7 +1559,7 @@ msgid "Browse/Add New Department"
 msgstr ""
 
 #: control/admin/index.php:48
-msgid "Record Source Types"
+msgid "AZRecord Source Types"
 msgstr ""
 
 #: control/admin/index.php:51

@@ -376,7 +376,7 @@ class Installer
 
 		//all the subjectqueries -- default data
 		$this->lobjInsertQueries = array(
-					"INSERT INTO `chchchanges` VALUES (1,1,'guide',1,'General','insert','2011-03-26 19:16:19'),(2,1,'record',1,'Sample Record','insert','2011-03-26 20:08:54')",
+					"INSERT INTO `chchchanges` VALUES (1,1,'guide',1,'General','insert','2011-03-26 19:16:19'),(2,1,'record',1,'Sample AZRecord','insert','2011-03-26 20:08:54')",
 					"INSERT INTO `subject` VALUES (1,'General',1,'general','',NULL,NULL,NULL,'Subject','2011-03-26 19:16:19',NULL,'{\"maincol\":\"\"}')",
 					"INSERT INTO `tab` VALUES (1,1,'Main',0,NULL,1,NULL,NULL,NULL)",
 					"INSERT INTO `section` VALUES (1,0,'4-6-2',1)",
@@ -409,7 +409,7 @@ class Installer
 					(50,'religion',50),(51,'sciences (general)',51),(52,'social sciences (general)',52),(53,'social welfare &amp; social work',53),(54,'sociology &amp; social history',54),
 					(55,'statistics',55),(56,'veterinary medicine',56),(57,'visual arts',57),(58,'women&#039;s studies',58),(59,'zoology',59)",
 					"INSERT INTO `restrictions` VALUES (1,'None'),(2,'Restricted'),(3,'On Campus Only'),(4,'Rest--No Proxy')",
-					"INSERT INTO `title` VALUES (1,'Sample Record',NULL,'Here you can enter a description of the record.&nbsp; A description may be overwritten for a given subject by clicking the icon next to the desired subject in the Record screen.<br />',
+					"INSERT INTO `title` VALUES (1,'Sample AZRecord',NULL,'Here you can enter a description of the record.&nbsp; A description may be overwritten for a given subject by clicking the icon next to the desired subject in the AZRecord screen.<br />',
 					NULL,NULL,'2011-03-26 20:08:54')",
 					"INSERT INTO `source` VALUES (1,'Journals/Magazines',1),(2,'Newspapers',5),(3,'Web Sites',10),(4,'FAQs',15),(5,'Almanacs & Yearbooks',100),(6,'Atlases',100),(7,'Bibliographies',100),
 					(8,'Biographical Information',100),(9,'Concordances',100),(10,'Dictionaries',100),(11,'Encyclopedias',100),(12,'Government Information',100),(13,'Grants/Scholarships/Financial Aid',100),

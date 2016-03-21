@@ -12,7 +12,7 @@ use SubjectsPlus\Control\Querier;
 
 $subsubcat = "";
 $subcat = "guides";
-$page_title = "Manage Files, Record Associations, etc.";
+$page_title = "Manage Files, AZRecord Associations, etc.";
 
 include("../includes/header.php");
 
@@ -186,7 +186,7 @@ $file_list .= '</table>';
 
 
 ///////////
-// Record mgr
+// AZRecord mgr
 /////////////
 
 $subs_option_boxes = getSubBoxes("", "", 1);

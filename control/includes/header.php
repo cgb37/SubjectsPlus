@@ -13,7 +13,6 @@ require_once("autoloader.php");
 
 require_once("functions.php");
 
-include_once(dirname(dirname(dirname(__FILE__))) . "/lib/CSRF-Protector-PHP-nojs-support/libs/csrf/csrfprotector.php");
 
 use SubjectsPlus\Control\DBConnector;
 use SubjectsPlus\Control\BuildNav;
@@ -40,21 +39,16 @@ require_once(dirname(__FILE__) . "/config.php");
 
 
 if ((isset($use_shibboleth) && $use_shibboleth) == TRUE) {
-	
+
 	isCool($_SERVER['mail'],"", true);
-	
+
 } else {
-	
+
 	$db = new Querier;
 	// start our session
 	session_start();
-	
+
 }
-
-
-//Initialise CSRFGuard library
-csrfProtector::init();
-
 
 
 //print_r($_SESSION);
@@ -172,7 +166,7 @@ mb_internal_encoding('UTF-8');
     <meta charset="utf-8">
     <link rel="stylesheet" href="<?php echo getControlURL(); ?>includes/css.php" type="text/css" media="all" />
     <script src="<?php echo getControlURL(); ?>includes/js.php" type="text/javascript"></script>
-    
+
     <?php
     // this is for custom css, set by user and stored in database
 
@@ -202,14 +196,14 @@ mb_internal_encoding('UTF-8');
 
 	<header id="header">
 	    <div class="pure-g">
-	        <div class="pure-u-1">	    		
+	        <div class="pure-u-1">
 
 	        <?php
 	        // Our Nav is built here:
 	        $b_box = new BuildNav();
 	        $b_box->displayNav();
 	        ?>
-	    		
+
 			</div>
 		</div>
 	</header>

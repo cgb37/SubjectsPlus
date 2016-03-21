@@ -57,7 +57,7 @@ makepluslet(_("Departments"), $departments_box, "no_overflow");
         </ul>"; 
 
 
-makepluslet(_("Record Source Types"), $sources_box, "no_overflow");
+makepluslet(_("AZRecord Source Types"), $sources_box, "no_overflow");
 
 $faq_box = "<ul>
             <li><a href=\"faq_collections.php\">" . _("Browse/Add FAQ Collections") . "</a></li>

@@ -739,7 +739,7 @@ function seeRecentChanges($staff_id, $limit=10) {
           $linkit = $CpanelPath . "guides/guide.php?subject_id=$myrow2[1]";
           break;
         case "record":
-          $intro = _("Record") . " $message";
+          $intro = _("AZRecord") . " $message";
           $linkit = $CpanelPath . "records/record.php?record_id=$myrow2[1]";
           break;
         case "staff_details":

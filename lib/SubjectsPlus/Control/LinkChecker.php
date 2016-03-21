@@ -344,7 +344,7 @@ class LinkChecker {
 			?>
 			<h2 style="clear:both;"><?php print _("Checking All Records"); ?>:</h2>
 			<?php if(!count($links_result)): ?>
-				<p style="margin: 20px 0 40px 0;"><?php print _("No Record Locations Exist"); ?>.</p>
+				<p style="margin: 20px 0 40px 0;"><?php print _("No AZRecord Locations Exist"); ?>.</p>
 			<?php else: ?>
 				<table class="striper" style="width: 100%; margin: 20px 0 40px 0;">
 					<thead>

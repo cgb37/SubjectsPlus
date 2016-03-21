@@ -676,7 +676,7 @@ public function loadLibGuidesLinksXML() {
 
       if ($this->db->exec("INSERT INTO location (location, format, access_restrictions, eres_display) VALUES (" . $this->db->quote($link->URL) . " , 1, 1, 'N' )" )) {
 	
-      	array_push($dupes, array("status" => "New Record Created"));
+      	array_push($dupes, array("status" => "New AZRecord Created"));
       	 
       	
 	$this->log->importLog("Inserted location");

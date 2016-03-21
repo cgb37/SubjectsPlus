@@ -56,7 +56,7 @@ class BuildNav {
       print "><a href=\"$CpanelPath" . "records/\">" . _("Records") . "</a>
         <div>
          <ul>
-            <li><a href=\"$CpanelPath" . "records/record.php\">" . _("New Record") . "</a></li>
+            <li><a href=\"$CpanelPath" . "records/record.php\">" . _("New AZRecord") . "</a></li>
             <li><a href=\"$CpanelPath" . "records/index.php\">" . _("Browse Items") . "</a></li>
          </ul>
 		  </div></li>";

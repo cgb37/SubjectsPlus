@@ -457,9 +457,15 @@ if (!defined('__CSRF_PROTECTOR__')) {
 		 */
 		private static function logCSRFattack()
 		{
+			if( ! ini_get('date.timezone') )
+			{
+				date_default_timezone_set('GMT');
+			}
 			//if file doesnot exist for, create it
 			$logFile = fopen(__DIR__ ."/../" .self::$config['logDirectory']
 			."/" .date("m-20y") .".log", "a+");
+
+
 			
 			//throw exception if above fopen fails
 			if (!$logFile) {

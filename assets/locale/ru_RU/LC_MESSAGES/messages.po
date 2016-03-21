@@ -707,7 +707,7 @@ msgstr "Сохранить"
 
 #: control/includes/classes/Staff.php:272
 #: control/includes/classes/sp_Record.php:176
-msgid "Save Record Now"
+msgid "Save AZRecord Now"
 msgstr "Сохранить запись сейчас"
 
 #: control/includes/classes/Staff.php:278
@@ -749,7 +749,7 @@ msgid "Subject Specialist"
 msgstr "Тематический специалист"
 
 #: control/includes/classes/sp_Record.php:143
-msgid "Record Title"
+msgid "AZRecord Title"
 msgstr "Заголовок записи"
 
 #: control/includes/classes/sp_Record.php:146
@@ -833,11 +833,11 @@ msgid "There was a problem with your delete (stage 2 of 2)."
 msgstr "Существовал проблема с удалением (этап 2 из 2)."
 
 #: control/includes/classes/sp_Record.php:515
-msgid "Thy Will Be Done.  Record added."
+msgid "Thy Will Be Done.  AZRecord added."
 msgstr "Да будет воля Твоя. Запись добавлена."
 
 #: control/includes/classes/sp_Record.php:580
-msgid "Thy Will Be Done.  Record updated."
+msgid "Thy Will Be Done.  AZRecord updated."
 msgstr "Да будет воля Твоя. Запись обновлена."
 
 #: control/includes/classes/sp_CompleteMe.php:52
@@ -1093,7 +1093,7 @@ msgid "Records"
 msgstr "Записи"
 
 #: control/includes/classes/sp_BuildNav.php:35 control/records/index.php:145
-msgid "New Record"
+msgid "New AZRecord"
 msgstr "Новая запись"
 
 #: control/includes/classes/sp_BuildNav.php:36
@@ -1286,7 +1286,7 @@ msgid "Research Guide deleted"
 msgstr "Руководство исследования удалено"
 
 #: control/includes/functions.php:674
-msgid "Record"
+msgid "AZRecord"
 msgstr "Запись"
 
 #: control/includes/functions.php:678
@@ -1473,7 +1473,7 @@ msgid "This URL looks dodgy; better check it"
 msgstr "Этот URL выглядит не очень хорошо, лучше проверить его"
 
 #: control/records/record_bits.php:102
-msgid "SubjectsPlus: Record Delete Recommendation"
+msgid "SubjectsPlus: AZRecord Delete Recommendation"
 msgstr "SubjectsPlus: Рекомендуется удалить запись"
 
 #: control/talkback/index.php:55 control/talkback/index.php:94
@@ -1559,7 +1559,7 @@ msgid "Browse/Add New Department"
 msgstr "Просмотр/Добавление нового департамента"
 
 #: control/admin/index.php:48
-msgid "Record Source Types"
+msgid "AZRecord Source Types"
 msgstr "Типы Источников записей"
 
 #: control/admin/index.php:51

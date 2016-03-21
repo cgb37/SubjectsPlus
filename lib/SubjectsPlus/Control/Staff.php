@@ -625,8 +625,8 @@ class Staff {
 
     $our_ptags .= "<input type=\"hidden\" name=\"ptags\" value=\"$this->_ptags\" /><br class=\"clear-both\" /><p style=\"font-size: smaller\">";
     $our_ptags .= _("Select which parts of SubjectsPlus this user may access.
-                <br /><strong>records</strong> allows access to both the Record and Guide tabs.
-                <br /><strong>eresource_mgr</strong> allows the user to see all the information about a Record (and delete it), and quickly see all guides.
+                <br /><strong>records</strong> allows access to both the AZRecord and Guide tabs.
+                <br /><strong>eresource_mgr</strong> allows the user to see all the information about a AZRecord (and delete it), and quickly see all guides.
                 <br /><strong>admin</strong> allows access to the overall admin of the site.
                 <br /><strong>librarian</strong> means user shows up in lists of librarians.
                 <br /><strong>supervisor</strong> means user shows up in list of supervisors
@@ -653,7 +653,7 @@ class Staff {
     // Save/Delete Buttons
     /////////////////
 
-    $our_buttons = "<input type=\"submit\" name=\"submit_record\" class=\"pure-button pure-button-primary\" value=\"" . _("Save Record Now") . "\" />";
+    $our_buttons = "<input type=\"submit\" name=\"submit_record\" class=\"pure-button pure-button-primary\" value=\"" . _("Save AZRecord Now") . "\" />";
     // if it's not a new record, and we're authorized, show delete button
     if ($this->_staff_id != "") {
       $our_buttons .= " <input style=\"margin-left: 1em;\" type=\"submit\" name=\"delete_record\" class=\"pure-button delete_button pure-button-warning\" value=\"" . _("Delete Forever!") . "\" />";

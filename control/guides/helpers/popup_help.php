@@ -122,7 +122,7 @@ to create a feed.</p>
 <h2>Editable Boxes</h2>
 <p><img src=\"$IconPath/page_edit.gif\" alt=\"edit icon\" border=\"0\" style=\"float: left; margin-right: 10px; \" width=\"32\"/> Click on the pencil icon to edit a box.  You will then see a field to enter the title of your box, and another larger box to enter the contents of your box.  This large box has some icons at the top that let you style your text, i.e., make some text bold or italic, create a list, add a hyperlink, etc.  The second line of icons allow you to embed content from elsewhere in SubjectsPlus in your box.  Clicking on these will pop up a window which gives you further options.</p>
 
-<p><strong>Insert Resource Token</strong>:  Use this when you want to insert a reference to an item saved in SubjectsPlus (through the Record tab).  In the search box, enter (part of) the name of the resource you want to embed, say, \"history,\" and hit go.  From any results, tick the radio button of the item that you want to insert, say, \"America, history and life,\" and then click okay.  This will embed a token into your page:</p>
+<p><strong>Insert Resource Token</strong>:  Use this when you want to insert a reference to an item saved in SubjectsPlus (through the AZRecord tab).  In the search box, enter (part of) the name of the resource you want to embed, say, \"history,\" and hit go.  From any results, tick the radio button of the item that you want to insert, say, \"America, history and life,\" and then click okay.  This will embed a token into your page:</p>
 
 <p>{{dab},{8}, {America, history and life}} </p>
 

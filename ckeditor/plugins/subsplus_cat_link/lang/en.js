@@ -1,7 +1,7 @@
 //English translation of all output to user for the subsplus_cat_link plugin
 
-CKEDITOR.lang['en']['subsplus_cat_link.Label'] = 'Link to Catalog Record';
-CKEDITOR.lang['en']['subsplus_cat_link.Title'] = 'Link to Catalog Record';
+CKEDITOR.lang['en']['subsplus_cat_link.Label'] = 'Link to Catalog AZRecord';
+CKEDITOR.lang['en']['subsplus_cat_link.Title'] = 'Link to Catalog AZRecord';
 
 CKEDITOR.lang['en']['subsplus_cat_link.Tab1Label'] = 'Link to Subject Heading';
 CKEDITOR.lang['en']['subsplus_cat_link.Tab1Prefix'] = 'Prefix text (optional)';
@@ -25,7 +25,7 @@ CKEDITOR.lang['en']['subsplus_cat_link.Tab3ValidateCallLabel'] = 'Call Number an
 CKEDITOR.lang['en']['subsplus_cat_link.Tab3ValidateCall'] = 'Call Number field cannot be blank!';
 CKEDITOR.lang['en']['subsplus_cat_link.Tab3ValidateLabel'] = 'Title field cannot be blank!';
 
-CKEDITOR.lang['en']['subsplus_cat_link.Tab4Label'] = 'Link to Bib Record';
+CKEDITOR.lang['en']['subsplus_cat_link.Tab4Label'] = 'Link to Bib AZRecord';
 CKEDITOR.lang['en']['subsplus_cat_link.Tab4Text'] = 'Bib Number';
 CKEDITOR.lang['en']['subsplus_cat_link.Tab4Title'] = 'Title or Link Text';
 CKEDITOR.lang['en']['subsplus_cat_link.Tab4EG'] = 'b2865102';

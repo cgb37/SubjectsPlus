@@ -200,7 +200,7 @@ CKEDITOR.dialog.add( 'subsplus_cat_linkDialog', function( editor ) {
 				]
 			},
 			{
-				// Definition of the Link to Bib Record dialog tab (page).
+				// Definition of the Link to Bib AZRecord dialog tab (page).
 				id: 'tab-bib-num',
 				label: editor.lang['subsplus_cat_link.Tab4Label'],
 

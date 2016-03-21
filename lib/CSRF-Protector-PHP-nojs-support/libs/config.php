@@ -2,6 +2,7 @@
 /**
  * Configuration file for CSRF Protector z
  */
+
 return array(
 	"CSRFP_TOKEN" => "45ac9813740caf796e81f1e95b0f807a69496af5",
 	"noJs" => true,

@@ -175,14 +175,14 @@ class Record {
   	<div class=\"pure-u-1-3\">
   	<div class=\"pluslet\">
     <div class=\"titlebar\">
-      <div class=\"titlebar_text\">" . _("Record") . "</div>
+      <div class=\"titlebar_text\">" . _("AZRecord") . "</div>
       <div class=\"titlebar_options\"></div>
     </div>
     <div class=\"pluslet_body\">
         <label for=\"prefix\">" . _("Prefix") . "</label>
       	<input type=\"text\" name=\"prefix\" id=\"prefix\" class=\"pure-input-1-4\" value=\"" . $this->_prefix . "\" />
 
-        <label for=\"record_title\">" . _("Record Title") . "</label>
+        <label for=\"record_title\">" . _("AZRecord Title") . "</label>
         <input type=\"text\" name=\"title\" id=\"record_title\" class=\"pure-input-1 required_field\" value=\"" . $this->_title . "\" />
 
   	<label for=\"alternate_record_title\">" . _("Alternate Title") . "</label>
@@ -226,7 +226,7 @@ class Record {
 
 
 	$content = "
-	<input type=\"submit\" name=\"submit_record\" class=\"pure-button pure-button-primary\" value=\"" . _("Save Record Now") . "\" />";
+	<input type=\"submit\" name=\"submit_record\" class=\"pure-button pure-button-primary\" value=\"" . _("Save AZRecord Now") . "\" />";
     // if it's not a new record, and we're authorized, show delete button
 	if ($this->_record_id != "") {
 		if (isset($_SESSION["eresource_mgr"]) && $_SESSION["eresource_mgr"] == "1") {
@@ -702,7 +702,7 @@ if ($notrack != 1) {
 
 
     // message
-$this->_message = _("Thy Will Be Done.  Record added.");
+$this->_message = _("Thy Will Be Done.  AZRecord added.");
 }
 
 public function updateRecord($notrack = 0) {
@@ -769,7 +769,7 @@ public function updateRecord($notrack = 0) {
 	}
 
     // message
-	$this->_message = _("Thy Will Be Done.  Record updated.");
+	$this->_message = _("Thy Will Be Done.  AZRecord updated.");
 }
 
 function modifyRank() {

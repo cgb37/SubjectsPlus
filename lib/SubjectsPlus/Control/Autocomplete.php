@@ -161,13 +161,13 @@ class Autocomplete {
 
         break;
       case "records":
-       $statement = $connection->prepare("SELECT title_id AS 'id', 'Record' as 'content_type',title AS 'label', 
+       $statement = $connection->prepare("SELECT title_id AS 'id', 'AZRecord' as 'content_type',title AS 'label',
        		title FROM title WHERE title LIKE :search_term");
         break;
         
         
      case "azrecords":
-        	$statement = $connection->prepare("SELECT title.title_id as 'id','Record' as 'content_type', title.title as 'label' FROM title
+        	$statement = $connection->prepare("SELECT title.title_id as 'id','AZRecord' as 'content_type', title.title as 'label' FROM title
 INNER JOIN location_title 
 ON title.title_id = location_title.title_id
 INNER JOIN location
@@ -259,7 +259,7 @@ AND title.title LIKE :search_term");
 	
         switch($myrow['content_type']) {
 
-          case "Record":
+          case "AZRecord":
             $arr[$i]['label'] = html_entity_decode($myrow['label']);
 
             if ($this->getSearchPage() == "control") {

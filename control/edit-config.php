@@ -65,7 +65,7 @@ if(!is_writable($lstrConfigFilePath))
 				
 							"shibboleth_logout" => array( _( "Shibboleth Logout URL" ), _( "This is the URL that logs the user out of a Shibboleth session." ), "string", "right", "large", "", _("This is a URL that logs the user out of a Shibboleth session.") ),
 				
-							"all_ctags" => array( _( "Record Tags" ), _( "These are the tags that a given record location can have associated with it." ), "array", "right", "textarea", "", _("Record tags are a way of slicing and dicing the total set of records.  If you add a new tag, you will need to add new code to deal with items with this tag.  Adding a tag by itself will do nothing except make that tag show up in some places.") ),
+							"all_ctags" => array( _( "AZRecord Tags" ), _( "These are the tags that a given record location can have associated with it." ), "array", "right", "textarea", "", _("AZRecord tags are a way of slicing and dicing the total set of records.  If you add a new tag, you will need to add new code to deal with items with this tag.  Adding a tag by itself will do nothing except make that tag show up in some places.") ),
 
 							"all_vtags" => array( _( "Video Tags" ), _( "These are the tags that a given video can have associated with it. These are used for the videos module." ), "array", "right", "large", "", "" ),
 
