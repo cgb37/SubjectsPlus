@@ -18,7 +18,7 @@ use SubjectsPlus\Control\LinkChecker;
 use SubjectsPlus\Control\Querier;
 
 $subcat = "records";
-$page_title = "Edit AZRecord";
+$page_title = "Edit Record";
 $wintype = "";
 
 // Suppress header if it is to be shown in colorbox or popup window
