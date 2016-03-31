@@ -209,7 +209,7 @@ function resourceList() {
 													+ "<div class=\"pure-g\"><div class=\"pure-u-4-5 list-search-label\" title=\"" + data[i].label + "\">" + data[i].label + "</div>"
 													+ "<div class=\"pure-u-1-5\" style=\"text-align:right;\">"
 													+ "<button data-label='" + data[i].label + "' value='" + data[i].id + "' class=\"add-to-list-button pure-button pure-button-secondary\"><i class=\"fa fa-plus\"></i></button></div></div>"
-												    + "<div>" + data[i].location_url + "</div>"
+												    + "<div><a href='" + data[i].location_url + "' target='_blank'>" + data[i].location_url + "</a></div>"
 												    + "</li>");
 										}
 
@@ -231,57 +231,11 @@ function resourceList() {
 			},
 
 			addListToPage: function () {
+				/*
 				myResourceList.settings.dbListButton.on("click", function () {
 
-					$('#save_guide').show();
-
-					var linkListRadio = $("input[name='link-list-radio']:checked").val();
-
-					var pluslet_id = $('#link-list-pluslet-id').attr('data-link-list-pluslet-id');
-					console.log(pluslet_id);
-
-					if ($.trim($("#link-list-textarea").val()).length > 0) {
-
-						var textContent = $.trim($("#link-list-textarea").val());
-
-						if(linkListRadio == 'top') {
-							var topContent = "<topContent>" + textContent + "</topContent>";
-							var bottomContent = "<bottomContent></bottomContent>";
-						} else {
-							var topContent = "<topContent></topContent>";
-							var topContent = "<bottomContent>" + textContent + "</bottomContent>";
-						}
-
-					}
-
-					if(pluslet_id > 0) {
-						var sorted_list = $('.db-list-results').html();
-					}
-					console.log(sorted_list);
-
-					var link_list_items = "";
-
-					$(sorted_list).each(function (data) {
-						//console.log(index);
-						var label = $(this).find('.db-list-label');
-						console.log('label: ' + label);
-
-					});
-
-					//convert to xml
-					var xml = "";
-
-					xml += "<linkList>";
-					xml += topContent;
-					xml += "<record>";
-
-					xml += "</record>";
-					xml += bottomContent;
-					xml += "</linkList>";
-
-
-
 				});
+				*/
 			},
 
 			convertToSortableList: function(list) {
