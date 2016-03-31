@@ -42,6 +42,7 @@ class Pluslet_LinkList extends Pluslet
 
     protected function onViewOutput() {
 
+        /*
         $xmlstring = $this->_body;
         $array = $this->convertXmlToViewableList($xmlstring);
         //var_dump($array);
@@ -49,12 +50,15 @@ class Pluslet_LinkList extends Pluslet
         $this->_linkList = $array;
 
         $this->_body = $this->loadHtml(__DIR__ . '/views/LinkListView.php');
+        */
     }
 
 
     protected function onEditOutput() {
+        $this->_linkList = $this->_body;
+        $this->_body = $this->loadHtml(__DIR__ . '/views/LinkListEdit.php');
 
-
+/*
         //print_r($this->_body);
         if( ($this->_body != null) && ($this->_pluslet_id != null) ) {
             $xmlstring = $this->_body;
@@ -68,8 +72,39 @@ class Pluslet_LinkList extends Pluslet
 
             $this->_body = $this->loadHtml(__DIR__ . '/views/LinkListNew.php');
         }
+*/
+    }
 
+    protected function getJsonData() {
+        $data = '[{
+                    "recordId": "98",
+                    "title": "ebsco db",
+                    "topContent": "<p>top content</p>",
+                    "bottomContent": "<p>bottom content</p>",
+                    "showIcons": "0",
+                    "showDesc": "1",
+                    "showNote": "0"
+                },
+                {
+                    "recordId": "88",
+                    "title": "proquest db",
+                    "topContent": "<p>top content</p>",
+                    "bottomContent": "<p>bottom content</p>",
+                    "showIcons": "0",
+                    "showDesc": "1",
+                    "showNote": "0"
+                },
+                {
+                    "recordId": "78",
+                    "title": "safari db",
+                    "topContent": "<p>top content</p>",
+                    "bottomContent": "<p>bottom content</p>",
+                    "showIcons": "0",
+                    "showDesc": "1",
+                    "showNote": "0"
+                }]';
 
+        return $data;
     }
 
     protected function getData() {

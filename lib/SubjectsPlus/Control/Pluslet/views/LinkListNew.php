@@ -36,7 +36,16 @@
             </div>
         </div>
 
+        <div>
+            <button class="pure-button pure-button-secondary" id="report-broken-record"></button>
 
+            <form action="mailto:cgb37@miami.edu?Subject='Broken Record Link'" method="post">
+                <input name="broken-record-name" type="text" />
+                <textarea name="broken-record-desc" rows="7" cols="34"></textarea>
+                <input type="submit" value="Submit" />
+            </form>
+
+        </div>
     </div>
     <div class="pure-u-1-3">
         <h3>Selected Records</h3>
@@ -159,12 +168,12 @@
             CKEDITOR.replace('description', {
                 toolbar: 'Basic'
             });
-/*
 
-             CKEDITOR.replace('LinkList-extra-textcontent', {
-             toolbar: 'Basic'
+
+             CKEDITOR.replace('link-list-textarea', {
+                toolbar: 'Basic'
              });
-*/
+
         </script>
 
 

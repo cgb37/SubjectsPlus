@@ -47,36 +47,11 @@
 
         <!--display results selected-->
         <div class="db-list-content">
-            <?php $linkList = $this->_linkList; ?>
+
             <div id="LinkList-body">
-
-                <div class=“link-list-text-top”><?php //echo $linkList['topContent']; ?></div>
-                <ul class="db-list-results ui-sortable" data-link-list-pluslet-id="<?php echo $this->_pluslet_id; ?>">
-                    <?php foreach($linkList['record'] as $item): ?>
-
-                        <?php $displayOptions = $item['displayOptions']['showIcons'].$item['displayOptions']['showDesc'].$item['displayOptions']['showNote']; ?>
-
-                        <li class="db-list-item-draggable" value="<?php echo $item['recordId']; ?>"><span class="db-list-label"><?php echo $item['title']; ?></span>
-                            <div>
-                                <span class="show-icons-toggle db-list-toggle">
-                                    <i class="fa fa-minus"></i>
-                                    <i class="fa fa-check"  style="display: none;"></i> Icons
-                                </span>
-
-                                <span class="show-description-toggle db-list-toggle active">
-                                    <i class="fa fa-minus" style="display: none;"></i>
-                                    <i class="fa fa-check" style="display: inline-block;"></i> Description
-                                </span>
-                                <span class="include-note-toggle db-list-toggle"
-                                    <i class="fa fa-minus"></i>
-                                    <i class="fa fa-check" style="display: none;"></i> Note
-                                </span>
-                            </div>
-                        </li>
-
-                    <?php endforeach; ?>
+                <ul class="db-list-results ui-sortable">
+                    <?php echo $this->_linkList; ?>
                 </ul>
-                <div class=“link-list-text-bottom”><?php //echo $linkList['bottomContent']; ?></div>
 
             </div>
 
@@ -84,9 +59,8 @@
 
 
         <br>
-        <?php if($linkList['topContent']) {$textarea = trim($linkList['topContent']);} ?>
-        <?php if($linkList['bottomContent']) {$textarea = trim($linkList['bottomContent']);} ?>
-        <textarea id="link-list-textarea" name="LinkList-extra-textarea" cols="34" rows="7"><?php echo $textarea; ?></textarea>
+
+        <textarea id="link-list-textarea" name="LinkList-extra-textarea" cols="34" rows="7"></textarea>
         <br>
         <div>
             <input type="radio" name="LinkList-extra-radio" value="top" > Above List<br>
@@ -193,11 +167,9 @@
                 toolbar: 'Basic'
             });
 
-            /*
-             CKEDITOR.replace('LinkList-extra-textcontent', {
-             toolbar: 'Basic'
-             });
-             */
+            CKEDITOR.replace('link-list-textarea', {
+                toolbar: 'Basic'
+            });
         </script>
 
     </div>
