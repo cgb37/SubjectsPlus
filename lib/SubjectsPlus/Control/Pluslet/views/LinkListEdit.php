@@ -141,17 +141,28 @@
                 } else {
                     event.preventDefault();
 
+                    var description = CKEDITOR.instances.description.getData();
+
                     // Insert the record object
                     createRecord.insertRecord({
                         "title_id": null,
                         "title": $('#record-title').val(),
                         "alternate_title": null,
-                        "description": $('#description').val(),
+                        "description": description,
                         "pre": null,
                         "last_modified_by": "",
                         "last_modified": "",
                         "subjects": [{'subject_id': $('#guide-parent-wrap').data().subjectId}],
-                        "locations": [$('#location').val()]
+                        "locations": [{"location_id": "",
+                            "format": "1",
+                            "call_number": "",
+                            "location": $('#location').val(),
+                            "access_restrictions": "1",
+                            "eres_display": "N",
+                            "display_note": "",
+                            "helpguide": "",
+                            "citation_guide": "",
+                            "ctags": ""}]
                     });
 
                     // Reset the form
@@ -197,7 +208,6 @@
     var rL = resourceList();
     rL.init();
     rL.bindUiActions();
-
     rL.editLinkList("<?php echo $this->getLinkListId();?>");
 </script>
 

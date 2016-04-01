@@ -121,6 +121,8 @@ function resourceList() {
 					myResourceList.settings.dbListResults.disableSelection();
 					$('.db-list-item-draggable').last().find('.fa-check').hide();
 
+
+
 				});
 			},
 
@@ -303,7 +305,8 @@ function resourceList() {
 				    // append the token list to the body of the pluslet
 					$(this).parents().find('#LinkList-body').html(linkListContainer);
 
-					$('#save_guide').show();
+					saveSetup().saveGuide();
+
 
 				});
 			},
