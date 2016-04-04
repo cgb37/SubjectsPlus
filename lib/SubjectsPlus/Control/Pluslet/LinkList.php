@@ -21,9 +21,6 @@ class Pluslet_LinkList extends Pluslet
         $this->_subject_id = $subject_id;
         $this->_isclone = $isclone;
 
-
-
-
     }
 
 
@@ -42,15 +39,7 @@ class Pluslet_LinkList extends Pluslet
 
     protected function onViewOutput() {
 
-        /*
-        $xmlstring = $this->_body;
-        $array = $this->convertXmlToViewableList($xmlstring);
-        //var_dump($array);
 
-        $this->_linkList = $array;
-
-        $this->_body = $this->loadHtml(__DIR__ . '/views/LinkListView.php');
-        */
     }
 
 
@@ -58,98 +47,9 @@ class Pluslet_LinkList extends Pluslet
         $this->_linkList = $this->_body;
         $this->_body = $this->loadHtml(__DIR__ . '/views/LinkListEdit.php');
 
-/*
-        //print_r($this->_body);
-        if( ($this->_body != null) && ($this->_pluslet_id != null) ) {
-            $xmlstring = $this->_body;
-            $array = $this->convertXmlToViewableList($xmlstring);
-            //var_dump($array);
 
-            $this->_linkList = $array;
-            $this->_body = $this->loadHtml(__DIR__ . '/views/LinkListEdit.php');
-
-        } else {
-
-            $this->_body = $this->loadHtml(__DIR__ . '/views/LinkListNew.php');
-        }
-*/
     }
 
-    protected function getJsonData() {
-        $data = '[{
-                    "recordId": "98",
-                    "title": "ebsco db",
-                    "topContent": "<p>top content</p>",
-                    "bottomContent": "<p>bottom content</p>",
-                    "showIcons": "0",
-                    "showDesc": "1",
-                    "showNote": "0"
-                },
-                {
-                    "recordId": "88",
-                    "title": "proquest db",
-                    "topContent": "<p>top content</p>",
-                    "bottomContent": "<p>bottom content</p>",
-                    "showIcons": "0",
-                    "showDesc": "1",
-                    "showNote": "0"
-                },
-                {
-                    "recordId": "78",
-                    "title": "safari db",
-                    "topContent": "<p>top content</p>",
-                    "bottomContent": "<p>bottom content</p>",
-                    "showIcons": "0",
-                    "showDesc": "1",
-                    "showNote": "0"
-                }]';
-
-        return $data;
-    }
-
-    protected function getData() {
-        $data = "<linkList>
-                    <topContent>top content</topContent>
-                         <record>
-                            <title>Biological Sciences (ProQuest)</title>
-                            <recordId>98</recordId>
-                            <displayOptions>
-                                <showIcons>1</showIcons>
-                                <showDesc>0</showDesc>
-                                <showNote>0</showNote>
-                            </displayOptions>			
-                        </record>
-                        <record>
-                            <title> Sciences</title>
-                            <recordId>198</recordId>
-                            <displayOptions>
-                                <showIcons>0</showIcons>
-                                <showDesc>1</showDesc>
-                                <showNote>0</showNote>
-                            </displayOptions>			
-                        </record>
-                        <record>
-                            <title>ProQuest</title>
-                            <recordId>83</recordId>
-                            <displayOptions>
-                                <showIcons>1</showIcons>
-                                <showDesc>1</showDesc>
-                                <showNote>1</showNote>
-                            </displayOptions>			
-                        </record>
-                    <bottomContent>bottom content</bottomContent>
-                </linkList>";
-
-        return $data;
-    }
-
-    protected function convertXmlToViewableList($xmlstring = null) {
-        $xml = simplexml_load_string($xmlstring);
-        $json = json_encode($xml);
-        $array = json_decode($json,TRUE);
-
-        return $array;
-    }
 
 
 

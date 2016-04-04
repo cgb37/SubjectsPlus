@@ -72,8 +72,15 @@ function resourceList() {
 				document.addEventListener("DOMContentLoaded", function(event) { 
 
 				myResourceList.bindUiActions();
+			    myResourceList.editLinkList();
 
 				});
+
+
+				if($('.link-list')) {
+				//	myResourceList.editLinkList($('.link-list').html());
+				}
+
 
 				return myResourceList;
 			},
@@ -246,33 +253,71 @@ function resourceList() {
 				/*
 				myResourceList.settings.dbListButton.on("click", function () {
 
+<<<<<<< HEAD
+=======
+					$('#save_guide').show();
+
+					// Create a container to append everything to
+					var linkListContainer = document.createElement("div");
+					linkListContainer.setAttribute("class","link-list-container");
+
+
+					// Create the top and bottom elements
+					var linkListTextTop = document.createElement("div");
+					linkListTextTop.setAttribute("class","link-list-text-top");
+					var linkListTextTopText = document.createTextNode("");
+					linkListTextTop.appendChild(linkListTextTopText);
+
+					var linkListTextBottom = document.createElement("div");
+					linkListTextBottom.setAttribute("class","link-list-text-bottom");
+					var linkListTextBottomText = document.createTextNode("");
+					linkListTextTop.appendChild(linkListTextBottomText);
+					linkListContainer.appendChild(linkListTextBottom);
+
+					// Create the token list ul
+					var tokenList = document.createElement("ul");
+					tokenList.setAttribute("class","link-list");
+
+
+					// Go through the draggables and turn them into <li>s with the token
+					$(".db-list-item-draggable").each(function (data) {
+						var title = $(this).find('.db-list-label').text();
+						var record_id = $(this).val();
+
+						// Grab the options
+						var display_options = $(this).data().display_options;
+
+
+						// If these are undefined, make them 0
+						display_options = (typeof display_options === 'undefined') ? "000" : display_options;
+
+
+						if ($(this).text()) {
+							var linkListItem =  document.createElement("li");
+							linkListItem.setAttribute("class","token-list-item");
+							var tokenText = document.createTextNode("{{dab},{" + record_id + "},{" + title + "}" + ",{" + display_options + "}}");
+							linkListItem.appendChild(tokenText);
+							tokenList.appendChild(linkListItem);
+							linkListContainer.appendChild(tokenList);
+						}
+					});
+
+					linkListContainer.appendChild(linkListTextBottom);
+
+					// append the token list to the body of the pluslet
+					$('#LinkList-body').html(linkListContainer);
+
+>>>>>>> ffbfceb332a06ce5b9549f464ba733c9f350933f
 				});
 				*/
 			},
+			editLinkList: function(linkListHTML) {
 
-			convertToSortableList: function(list) {
-
-			},
-
-			convertToViewableList: function(list) {
-
-			},
-
-			createLinkList: function() {
-				//get data from form
-				var linkListRadio = $("input[name='link-list-radio']:checked").val();
-				var textContent = $.trim($("#link-list-textarea").val());
-
-
-
-			},
-
-			editLinkList: function() {
-
+				// Take the token list and turn into draggable markup when in edit view
 
 			}
 
 
 	};
 	return myResourceList; 
-};
+}

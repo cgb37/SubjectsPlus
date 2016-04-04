@@ -1,17 +1,9 @@
-<div id="link-list-pluslet-id" data-link-list-pluslet-id="<?php echo $this->_pluslet_id; ?>"></div>
+<div id="LinkList-body">
 
 
 <script>
     $('#save_guide').hide();
 </script>
-
-
-<?php if ((isset($this->_pluslet_id)) && (!empty($this->_pluslet_id))) {
-    $pluslet_id = $this->_pluslet_id;
-} else {
-    $data_linklist_tmp_pluslet_id = "";
-
-} ?>
 
 
 <div class="pure-g">
@@ -47,6 +39,11 @@
 
         <!--display results selected-->
         <div class="db-list-content">
+<<<<<<< HEAD
+=======
+            <?php $linkList = $this->_linkList; ?>
+            <div class="link-list-draggable">
+>>>>>>> ffbfceb332a06ce5b9549f464ba733c9f350933f
 
             <div id="LinkList-body">
                 <ul class="db-list-results ui-sortable">
@@ -167,9 +164,13 @@
                 toolbar: 'Basic'
             });
 
+<<<<<<< HEAD
             CKEDITOR.replace('link-list-textarea', {
                 toolbar: 'Basic'
             });
+=======
+
+>>>>>>> ffbfceb332a06ce5b9549f464ba733c9f350933f
         </script>
 
     </div>
@@ -179,4 +180,7 @@
     var rL = resourceList();
     rL.init();
     rL.bindUiActions();
+    rL.editLinkList();
 </script>
+
+</div>
