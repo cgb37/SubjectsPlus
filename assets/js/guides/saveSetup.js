@@ -456,7 +456,7 @@ function saveSetup() {
 			// ///////////////
 		    return (string+'').replace(/([\\"'])/g, "\\$1").replace(/\0/g, "\\0");
 		},
-		saveGuide : function () {
+		saveGuide : function (callback) {
 
 
 			var staff_id = $('#guide-parent-wrap').data.staffId;
@@ -590,7 +590,9 @@ function saveSetup() {
 		            favoriteBox().getUserFavoriteBoxes(g.getStaffId());
 		            favoriteBox().markAsFavorite();
 		            copyClone().markAsLinked();
-
+					if(callback) {
+						callback();
+					}
 
 
 		        });
