@@ -10,15 +10,14 @@ namespace SubjectsPlus\Control;
 require_once (__DIR__ . "../../../HTMLPurifier/HTMLPurifier.auto.php");
 class LGImport {
     private $_guide_id;
-    private $_libguides_xml;
     private $_guide_owner;
     private $_row = 0;
     private $_column = 0;
     private $_staff_id;
     private $log;
-private $titles = array();
-private $dupes = array();
-private $urls = array();
+    private $titles = array();
+    private $dupes = array();
+    private $urls = array();
 
     public function __construct($lib_guides_xml_path, Logger $log, Querier $db) {
         $libguides_xml = new \SimpleXMLElement ( file_get_contents ( $lib_guides_xml_path, 'r' ) );
@@ -149,11 +148,13 @@ private $urls = array();
         $linkListText = $box->DESCRIPTION;
         $links = "";
         foreach ($box->LINKS->LINK as $link) {
-            $new_url = $this->removeLegacyCatlog($link->URL, "'". $link->NAME . "'");
+            $new_url = $link->URL;
+
+            if($this->isCatalogLink($link->URL) == true){
+                $new_url = $this->removeLegacyCatlog($link->URL, "'". $link->NAME . "'");
+            }
 
             $record = $this->db->query("SELECT * FROM location WHERE location LIKE " . $this->db->quote($new_url), NULL, TRUE);
-            echo "SELECT * FROM location WHERE location LIKE " . $this->db->quote($new_url);
-            print_r($record);
             if (isset($record[0]['location_id'])) {
                 $record_title = $this->db->query("SELECT title.title,title.title_id, location.location  FROM 
 location_title 
@@ -224,7 +225,7 @@ WHERE location.location_id = " . $record[0]['location_id']);
 
             // Add these options -- otherwise you'll get a full HTML document with
             // a doctype when running saveHTML()
-            $doc->loadHTML($pure_html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            $doc->loadHTML($pure_html);
 
             // Download images
             $nodes = $doc->getElementsByTagName("img");
@@ -248,7 +249,7 @@ WHERE location.location_id = " . $record[0]['location_id']);
         }
 
         // Create html for the description
-        $clean_description = str_replace('&Acirc;','', $doc->saveHTML());
+        $clean_description = str_replace('&Acirc;','', preg_replace('/^<!DOCTYPE.+?>/', '', str_replace( array('<html>', '</html>', '<body>', '</body>'), array('', '', '', ''), $doc->saveHTML())));
         $description .= "<div class=\"description\">". $clean_description  . "</div>";
 
 
@@ -617,13 +618,13 @@ WHERE location.location_id = " . $record[0]['location_id']);
         $new_url = "http://search.library.miami.edu/primo_library/libweb/action/dlSearch.do?&institution=01UOML&vid=uxtest2&query=any,contains,{$title}";
         return $new_url;
     }
-public function purifyHTML($html) {
+    public function purifyHTML($html) {
 
     $config = \HTMLPurifier_Config::createDefault();
     $config->set('Core.Encoding', 'UTF-8');
     $config->set('HTML.TidyLevel', 'heavy');
 
-    $config->set('HTML.AllowedElements', array('a','b','p','i','em','u', 'br', 'div', 'img', 'strong','iframe','ul','li','ol'));
+    $config->set('HTML.AllowedElements', array('a','b','p','i','em','u', 'br', 'div', 'img', 'strong','iframe','ul','li','ol','font','table','tr','td','th'));
     $config->set('HTML.AllowedAttributes', array('a.href','class', 'img.src', '*.alt', '*.title', '*.border', 'a.target', 'a.rel','iframe.src'));
     $config->set('HTML.SafeIframe', true);
     $config->set('URI.SafeIframeRegexp', '%^http://(www.youtube.com/embed/|player.vimeo.com/video/)%');
@@ -641,16 +642,18 @@ public function purifyHTML($html) {
         $clean_url =  str_replace("'","", $noproxy_url);
         $title =  $this->db->quote(strip_tags($link_name));
 
-        $new_catalog_url = $this->removeLegacyCatlog($clean_url, $title);
+        if ($this->isCatalogLink($clean_url) == true) {
+            $clean_url = $this->removeLegacyCatlog($clean_url, $title);
+        }
 
-        array_push($this->urls, array("url" => $new_catalog_url));
+        array_push($this->urls, array("url" => $clean_url));
         array_push($this->titles, array("title" => $title));
 
         $record_check = $this->db->query("SELECT COUNT(*) FROM location WHERE location = $noproxy_url ");
         $title_check = $this->db->query("SELECT COUNT(*) FROM title WHERE title = $title");
 
         if ($record_check[0][0] == 0 && $title_check[0][0] == 0) {
-            if ($this->db->exec("INSERT INTO location (location, format, access_restrictions, eres_display) VALUES ({$this->db->quote($new_catalog_url)},1,1,'N' )" )) {
+            if ($this->db->exec("INSERT INTO location (location, format, access_restrictions, eres_display) VALUES ({$this->db->quote($clean_url)},1,1,'N' )" )) {
 
                 array_push($this->dupes, array("status" => "New Record Created"));
 
@@ -740,8 +743,6 @@ public function purifyHTML($html) {
 
         return $return_titles;
     }
-
-
     public function loadLibGuidesLinksXML() {
         $guide_id = $this->getGuideID();
         $libguides_xml= $this->libguidesxml;
@@ -770,11 +771,11 @@ public function purifyHTML($html) {
             $guide_name = str_replace("'", "''",$subject[0]);
 
             if ($subject[0] != null) {
-                if($this->db->exec("INSERT INTO subject (subject, subject_id, shortform, description, keywords, extra) VALUES ('$guide_name', '$subject[1]', '$shortform' , '$subject[3]', '$subject[7]','{\"maincol:\"\"}')")) {
+                if($this->db->exec("INSERT INTO subject (subject, subject_id, shortform, description, keywords, header, extra) VALUES ('$guide_name', '$subject[1]', '$shortform' , '$subject[3]', '$subject[9]','um','{\"maincol:\"\"}')")) {
                     $response = array("imported_guide" => $subject[1] );
                 } else {
                     $response = array("imported_guide" => $subject[1][0] );
-                    $query = "INSERT INTO subject (subject, subject_id, shortform, description, keywords, extra) VALUES ('$guide_name', '$subject[1]', '$shortform' ,  '$subject[3]', '$subject[7]','{\"maincol:\"\"}')";
+                    $query = "INSERT INTO subject (subject, subject_id, shortform, description, keywords, header, extra) VALUES ('$guide_name', '$subject[1]', '$shortform' ,  '$subject[3]', '$subject[9]','um','{\"maincol:\"\"}')";
                     $this->log->importLog( "Error inserting subject:");
                     $this->log->importLog ($query);
                     $this->log->importLog ( serialize($this->db->errorInfo()) );
@@ -851,8 +852,6 @@ public function purifyHTML($html) {
         $this->insertChildren();
         return json_encode($response);
     }
-
-
     public function parseLinksFromDescription($description) {
         $html = new \DOMDocument();
         $html->loadHTML($this->purifyHTML($description));
@@ -863,26 +862,35 @@ public function purifyHTML($html) {
         }
         return $description;
     }
+    public function isCatalogLink($href) {
+        $isCatalogLink = false;
 
+        if (strpos($href,'http://ibisweb.miami.edu') !== false) {
+            $isCatalogLink = true;
+        }
 
+        if (strpos($href,'http://catalog.library.miami.edu') !== false) {
+            $isCatalogLink = true;
+        }
+
+        return $isCatalogLink;
+
+    }
     public function replaceLinksWithTokens($description) {
         $html = new \DOMDocument();
-        $html->loadHTML($this->purifyHTML($description),LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $html->loadHTML($this->purifyHTML($description));
 
         foreach($html->getElementsByTagName("a") as $link) {
             $href = $link->getAttribute("href");
             $no_proxy_href = $this->removeProxy($href);
 
-            if (strpos($no_proxy_href,'http://ibisweb.miami.edu') !== false) {
+            if ($this->isCatalogLink($no_proxy_href) == true) {
                 $no_proxy_href = $this->removeLegacyCatlog($no_proxy_href, "'{$link->nodeValue}'");
-
             }
 
-            if (strpos($no_proxy_href,'http://catalog.library.miami.edu') !== false) {
+            if ($this->isCatalogLink($no_proxy_href) == true) {
                 $no_proxy_href = $this->removeLegacyCatlog($no_proxy_href, "'{$link->nodeValue}'");
-
             }
-
 
             $record = $this->db->query("SELECT * FROM location WHERE location LIKE " . $this->db->quote($no_proxy_href), NULL, TRUE);
 
@@ -898,7 +906,7 @@ public function purifyHTML($html) {
                 $link->parentNode->replaceChild($tokenSpan,$link);
             }
         }
-        return $html->saveHTML();
+        return preg_replace('/^<!DOCTYPE.+?>/', '', str_replace( array('<html>', '</html>', '<body>', '</body>'), array('', '', '', ''), $html->saveHTML()));
 
     }
 }
